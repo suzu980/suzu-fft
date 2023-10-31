@@ -6,7 +6,7 @@
 
 int sample_rate = 64;
 int signal_length = 64;
-int N = 32;
+size_t N = 32;
 float pi;
 
 // FAST FOURIER TRANSFORM
@@ -48,7 +48,7 @@ int main() {
 
   float hannCoeffs[N];
   for (size_t k = 0; k < N; ++k) {
-    hannCoeffs[k] = 0.5 - 0.5 * cos(2 * pi * k / N - 1);
+    hannCoeffs[k] = 0.5 - 0.5 * cos(2 * pi * k / (N - 1));
   }
 
   float xdata[signal_length];
